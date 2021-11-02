@@ -64,12 +64,24 @@ def scandinavia
   # Show the name and the population for 'Denmark', 'Finland', 'Norway', and
   # 'Sweden'
   execute(<<-SQL)
+  SELECT
+    countries.name, countries.population
+  FROM
+    countries
+  WHERE
+    countries.name in ('Denmark', 'Finland', 'Norway', 'Sweden') ;
   SQL
 end
 
 def starts_with_g
   # Show each country that begins with the letter G
   execute(<<-SQL)
+  SELECT
+    countries.name
+  FROM
+    countries
+  WHERE
+    countries.name like 'G%';
   SQL
 end
 
@@ -78,5 +90,11 @@ def just_the_right_size
   # with an area between 200,000 and 250,000.
   # BETWEEN allows range checking - note that it is inclusive.
   execute(<<-SQL)
+  SELECT
+    countries.name, countries.area/1000
+  FROM
+    countries
+  WHERE
+    countries.area BETWEEN 200000 AND 250000;
   SQL
 end
