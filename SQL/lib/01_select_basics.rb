@@ -81,7 +81,7 @@ def starts_with_g
   FROM
     countries
   WHERE
-    countries.name like 'G%';
+    countries.name like 'G%'; 
   SQL
 end
 
